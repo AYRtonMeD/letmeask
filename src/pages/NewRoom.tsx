@@ -1,10 +1,18 @@
-import illustrationImg from "../assets/images/illustration.svg"
-import logoImage from "../assets/images/logo.svg"
+import { useContext } from "react"
+import { Link } from "react-router-dom"
 
-import "../styles/auth.scss"
+import { useAuth } from "../hooks/useAuth"
 import { Button } from "../components/Button"
 
+import "../styles/auth.scss"
+
+import logoImage from "../assets/images/logo.svg"
+import illustrationImg from "../assets/images/illustration.svg"
+
+
 export function NewRoom() {
+
+    const  { user } = useAuth()
     
     return(
         <div id="page-auth">
@@ -28,7 +36,7 @@ export function NewRoom() {
                         </Button>
                     </form>
                     <p>
-                        Quer entrar em uma sala existente? <a href="#">clique aqui</a>
+                        Quer entrar em uma sala existente? <Link to="/">clique aqui</Link>
                     </p>
                 </div>
             </main>

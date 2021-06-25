@@ -1,10 +1,20 @@
-import { NewRoom } from "./pages/NewRoom";
+import { createContext, useState, useEffect } from "react"
+import { BrowserRouter, Route } from "react-router-dom"
+
 import { Home } from "./pages/Home";
+import { NewRoom } from "./pages/NewRoom";
+
+import { AuthContextProvider } from "./contexts/AuthContext"
 
 function App() {
-  console.log(process.env.REACT_APP_API_KEY);
+
   return (
-    <NewRoom />
+    <BrowserRouter>
+      <AuthContextProvider>
+        <Route path="/" exact component={Home} />
+        <Route path="/rooms/new" component={NewRoom} />
+      </AuthContextProvider>
+    </BrowserRouter>
   );
 }
 
